@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <title>Deep Research Workflow</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <div class="app">
+    <!-- ═══ SIDEBAR ═══ -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>Deep Research</h1>
+        <p>Multi-model research orchestrator</p>
+      </div>
+
+      <div class="phase-nav" id="phaseNav">
+        <!-- Populated by JS -->
+      </div>
+
+      <div style="padding:0 16px; margin-bottom:16px">
+        <button class="btn btn-secondary" onclick="resetResearch()"
+          style="width:100%; background:rgba(244,63,94,0.08); border-color:rgba(244,63,94,0.25); color:#fb7185; font-size:11px; font-weight:600; letter-spacing:0.03em">
+          🔄 Reset Research
+        </button>
+      </div>
+
+      <div class="token-summary" id="tokenSummary">
+        <div
+          style="font-weight:600; margin-bottom:12px; color:var(--text2); display:flex; justify-content:space-between; align-items:center;">
+          Token Tracking
+          <button class="btn-clear" onclick="clearSessionData()" title="Reset Session">×</button>
+        </div>
+        <table class="usage-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Input Tokens</th>
+              <th>Output Tokens</th>
+            </tr>
+          </thead>
+          <tbody id="usageBody">
+            <!-- Populated by JS -->
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Total</td>
+              <td id="totalIn">0</td>
+              <td id="totalOut">0</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div style="padding:0 16px 16px">
+        <button class="btn btn-secondary" onclick="handleLogout()"
+          style="width:100%; font-size:11px; font-weight:600; letter-spacing:0.03em; opacity:0.6">
+          🚪 Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══ MAIN ═══ -->
+    <div class="main" id="mainContent">
+      <!-- Populated by JS per step -->
+    </div>
+  </div>
+
+  <!-- Load Scripts in correct order -->
+  <script src="/js/state.js"></script>
+  <script src="/js/prompts.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+
+</html>
