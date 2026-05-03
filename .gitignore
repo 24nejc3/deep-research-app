@@ -4,3 +4,5 @@ node_modules/
 diagnose_results.txt
 .DS_Store
 .tmp/
+
+.vercel

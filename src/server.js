@@ -222,3 +222,5 @@ const server = app.listen(PORT, () => {
 server.timeout = 600000;
 server.keepAliveTimeout = 610000;
 server.headersTimeout = 620000;
+
+module.exports = app;
